@@ -1,16 +1,22 @@
-# This is a sample Python script.
+def choose_board_position():
+    global board_map
+    # Initialise variables
+    result = "INVALID"
+    board_positions = []
+    position_empty = False
+    for i in range(1, 10):
+        board_positions.append(str(i))
+    # Check if input is a number between 1 and 9
+    while not (result in board_positions and position_empty):
+        result = input("Select a position on the board by using the keypad [1 to 9]")
+        if result not in board_positions:
+            print("Input out of range, please try again...")
+        # Check if input position on the board is empty
+        elif board_map[result] != " ":
+            print("This board position is already taken, please try again...")
+        else:
+            position_empty = True
+    return int(result)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+choose_board_position()
